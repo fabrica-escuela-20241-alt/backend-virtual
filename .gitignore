@@ -32,5 +32,8 @@ build/
 ### VS Code ###
 .vscode/
 
-## properties
-src/main/resources/application.properties
+### Environment ###
+.env
+
+### Docker volume ###
+mysql_data
