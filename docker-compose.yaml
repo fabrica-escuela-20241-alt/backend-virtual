@@ -21,13 +21,29 @@ services:
     volumes:
       - ./mysql_data:/var/lib/mysql
 
-#  backend-virtual:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#    container_name: backend-virtual
-#    restart: always
-#    networks:
-#      - fabrica_escuela_net
-##    environment:
-##      ...
+  backend-virtual:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: backend-virtual
+    restart: always
+    networks:
+      - fabrica_escuela_net
+    env_file:
+      - .env
+    environment:
+      APPLICATION_NAME: ${APPLICATION_NAME}
+      DEVTOOLS_LIVERELOAD_ENABLED: ${DEVTOOLS_LIVERELOAD_ENABLED}
+      DATABASE_URL: ${DATABASE_URL}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_DRIVER_CLASS_NAME: ${DATABASE_DRIVER_CLASS_NAME}
+      JPA_HIBERNATE_DDL_AUTO: ${JPA_HIBERNATE_DDL_AUTO}
+      JPA_SHOW_SQL: ${JPA_SHOW_SQL}
+      JP_HIBERNATE_FORMAT_SQL: ${JP_HIBERNATE_FORMAT_SQL}
+      JPA_DATABASE: ${JPA_DATABASE}
+      JP_HIBERNATE_DATABASE_PLATFORM: ${JP_HIBERNATE_DATABASE_PLATFORM}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
+      JWT_ACCESS_TOKEN_EXPIRATION: ${JWT_ACCESS_TOKEN_EXPIRATION}
+      JWT_ID_TOKEN_EXPIRATION: ${JWT_ID_TOKEN_EXPIRATION}
+      PORT: ${PORT}

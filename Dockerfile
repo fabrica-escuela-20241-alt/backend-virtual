@@ -6,16 +6,14 @@ COPY pom.xml ./
 
 COPY src/ ./src/
 
-RUN gradle build --no-daemon -x test
+RUN mvn clean package -DskipTests
 
 FROM amazoncorretto:17-alpine3.17-jdk
 
 WORKDIR /app
 
-# ENV SPRING_PROFILES_ACTIVE='pdn'
-
-COPY --from=builder /app/build/libs/red-nacional-investigacion-cancer-1.0.0.jar ./red-nacional-investigacion-cancer-1.0.0.jar
+COPY --from=builder /app/target/backend-virtual-1.0.0.jar ./backend-virtual-1.0.0.jar
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "red-nacional-investigacion-cancer-1.0.0.jar"]
+CMD ["java", "-jar", "backend-virtual-1.0.0.jar"]
