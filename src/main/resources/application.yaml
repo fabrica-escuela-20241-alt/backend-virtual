@@ -16,37 +16,10 @@
 # APPLICATION
 spring:
   application:
-    name: ${APPLICATION_NAME}
-  devtools:
-    livereload:
-      enabled: ${DEVTOOLS_LIVERELOAD_ENABLED}
-  # ----------------------------------------------------------------------------------------------------------------------
-  # DATABASE
-  datasource:
-    url: ${DATABASE_URL}
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
-    driver-class-name: ${DATABASE_DRIVER_CLASS_NAME}
-  jpa:
-    hibernate:
-      ddl-auto: ${JPA_HIBERNATE_DDL_AUTO}
-    show-sql: ${JPA_SHOW_SQL}
-    properties:
-      hibernate:
-        format_sql: ${JP_HIBERNATE_FORMAT_SQL}
-    database: ${JPA_DATABASE}
-    database-platform: ${JP_HIBERNATE_DATABASE_PLATFORM}
-# ----------------------------------------------------------------------------------------------------------------------
-# AUTHENTICATION & AUTHORIZATION
-application:
-  security:
-    jwt:
-      secret-key: ${JWT_SECRET_KEY}
-      access-token:
-        expiration: ${JWT_ACCESS_TOKEN_EXPIRATION}
-      id-token:
-        expiration: ${JWT_ID_TOKEN_EXPIRATION}
+    name: fabrica-escuela-backend-virtual
+  profiles:
+    active: prod
 # ----------------------------------------------------------------------------------------------------------------------
 # SERVER
 server:
-  port: ${PORT}
+  port: 8080
