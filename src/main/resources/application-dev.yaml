@@ -21,7 +21,7 @@ spring:
   # ----------------------------------------------------------------------------------------------------------------------
   # DATABASE
   datasource:
-    url: jdbc:mysql://localhost:3306/fabrica_escuela_db?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&autoReconnect=true&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/fabrica_escuela?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&autoReconnect=true&allowPublicKeyRetrieval=true
     username: user
     password: 12345
     driver-class-name: com.mysql.cj.jdbc.Driver
