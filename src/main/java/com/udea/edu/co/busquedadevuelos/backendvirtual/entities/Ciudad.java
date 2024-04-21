@@ -8,9 +8,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.*;
 
 @Entity
 @Table(name = "ciudades")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Builder
 public class Ciudad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,32 +31,6 @@ public class Ciudad {
     @ManyToOne
     @JoinColumn(name = "id_pais", insertable = false, updatable = false)
     private Pais pais;
-
-    
-    // Getters y Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Long getIdPais() {
-        return idPais;
-    }
-
-    public void setIdPais(Long idPais) {
-        this.idPais = idPais;
-    }
 
 }
 

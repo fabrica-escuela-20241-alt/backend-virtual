@@ -27,6 +27,8 @@ services:
       dockerfile: Dockerfile
     container_name: backend-virtual
     restart: always
+    ports:
+      - "8080:8080"
     networks:
       - fabrica_escuela_net
     env_file:
