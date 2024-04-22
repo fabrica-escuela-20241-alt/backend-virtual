@@ -21,7 +21,6 @@ public class VuelosServiceImpl implements VuelosService {
 
     private final VueloRepository vueloRepository;
 
-
     @Override
     public FlightsResponse getAllFlights(Long page, Long size) {
         Pageable pageable = PageRequest.of(page.intValue(), size.intValue());
@@ -49,8 +48,6 @@ public class VuelosServiceImpl implements VuelosService {
     @Override
     public void createFlight(CreateFlightDto createFlightDto) {
         VueloData vueloData = VueloData.builder()
-//                .origen(createFlightDto.getOrigen())
-//                .destino(createFlightDto.getDestino())
                 .fechaSalida(createFlightDto.getFechaSalida())
                 .fechaLlegada(createFlightDto.getFechaLlegada())
                 .tipoVuelo(createFlightDto.getTipoVuelo())
