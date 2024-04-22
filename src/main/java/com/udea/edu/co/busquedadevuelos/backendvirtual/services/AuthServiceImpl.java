@@ -1,8 +1,8 @@
 package com.udea.edu.co.busquedadevuelos.backendvirtual.services;
 
 import com.udea.edu.co.busquedadevuelos.backendvirtual.config.AuthUtils;
-import com.udea.edu.co.busquedadevuelos.backendvirtual.controllers.dto.UserLoginDto;
-import com.udea.edu.co.busquedadevuelos.backendvirtual.controllers.dto.UserRegisterDto;
+import com.udea.edu.co.busquedadevuelos.backendvirtual.controllers.dto.request.UserLoginDto;
+import com.udea.edu.co.busquedadevuelos.backendvirtual.controllers.dto.request.UserRegisterDto;
 import com.udea.edu.co.busquedadevuelos.backendvirtual.domain.Credentials;
 import com.udea.edu.co.busquedadevuelos.backendvirtual.domain.Role;
 import com.udea.edu.co.busquedadevuelos.backendvirtual.domain.User;
@@ -19,7 +19,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;

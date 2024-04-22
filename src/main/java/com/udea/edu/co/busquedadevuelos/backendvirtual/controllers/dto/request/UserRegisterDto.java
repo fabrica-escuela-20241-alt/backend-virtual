@@ -1,4 +1,4 @@
-package com.udea.edu.co.busquedadevuelos.backendvirtual.controllers.dto;
+package com.udea.edu.co.busquedadevuelos.backendvirtual.controllers.dto.request;
 
 import lombok.*;
 

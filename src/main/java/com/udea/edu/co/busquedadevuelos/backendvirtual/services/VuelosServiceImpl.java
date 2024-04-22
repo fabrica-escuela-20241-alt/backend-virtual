@@ -4,7 +4,8 @@ import java.util.List;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-import com.udea.edu.co.busquedadevuelos.backendvirtual.controllers.dto.CreateFlightDto;
+import com.udea.edu.co.busquedadevuelos.backendvirtual.controllers.dto.request.CreateFlightDto;
+import com.udea.edu.co.busquedadevuelos.backendvirtual.controllers.dto.response.FlightsResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,10 +23,13 @@ public class VuelosServiceImpl implements VuelosService {
 
 
     @Override
-    public List<VueloData> getAllFlights(Long page, Long size) {
+    public FlightsResponse getAllFlights(Long page, Long size) {
         Pageable pageable = PageRequest.of(page.intValue(), size.intValue());
         Page<VueloData> result = vueloRepository.findAll(pageable);
-        return result.getContent();
+        return FlightsResponse.builder()
+                .vuelos(result.getContent())
+                .totalItems(result.getTotalElements())
+                .build();
     }
 
     @Override

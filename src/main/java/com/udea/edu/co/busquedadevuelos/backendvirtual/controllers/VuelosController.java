@@ -1,9 +1,9 @@
 package com.udea.edu.co.busquedadevuelos.backendvirtual.controllers;
 
-import com.udea.edu.co.busquedadevuelos.backendvirtual.controllers.dto.CreateFlightDto;
+import com.udea.edu.co.busquedadevuelos.backendvirtual.controllers.dto.request.CreateFlightDto;
+import com.udea.edu.co.busquedadevuelos.backendvirtual.controllers.dto.response.FlightsResponse;
 import com.udea.edu.co.busquedadevuelos.backendvirtual.services.VuelosService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -24,14 +24,13 @@ public class VuelosController {
     private final VuelosService vuelosService;
 
     @PostMapping("")
-    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<VueloData> createFlight(@RequestBody CreateFlightDto createFlightDto) {
         this.vuelosService.createFlight(createFlightDto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @GetMapping("")
-    public ResponseEntity<List<VueloData>> getAllFlights(
+    public ResponseEntity<FlightsResponse> getAllFlights(
             @RequestParam(required = false, defaultValue = "0") Long page,
             @RequestParam(required = false, defaultValue = "10") Long size
     ){
